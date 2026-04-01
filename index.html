@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>我的作品集</title>
-  <style>
-    body { text-align: center; margin-top: 100px; font-family: sans-serif; }
-  </style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Scenery | 3D 世界风景图鉴</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="//unpkg.com/globe.gl"></script>
+</head><meta name="description" content="基于 Three.js 和 Globe.gl 的交互式 3D 世界风景图鉴项目。">
 <body>
-  <h1>你好，这是我的 GitHub Pages</h1>
-  <p>正在搭建个人作品集～</p >
+    <div id="loading">正在初始化地球仪...</div>
+    <div id="globeViz"></div>
+
+    <div class="ui-overlay">
+        <h1 id="country-display">探索全球</h1>
+        <p>EXPLORE THE WONDERS</p>
+    </div>
+
+    <div id="detail-panel" class="side-panel">
+        <button class="close-btn" onclick="closeDetail()">×</button>
+        <div id="detail-content"></div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
