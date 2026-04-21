@@ -1,44 +1,126 @@
-/* styles.css */
+/* 全局 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  background: #f8fafc;
+  color: #222;
+  line-height: 1.6;
 }
 
+/* 导航栏 */
 header {
-    background: #35424a;
-    color: #ffffff;
-    padding: 10px 0;
-    text-align: center;
+  background: white;
+  padding: 20px 60px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
 }
 
-h1 {
-    margin: 0;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-main {
-    padding: 20px;
+nav h2 {
+  color: #2563eb;
 }
 
-section {
-    background: #ffffff;
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
 }
 
-h2 {
-    color: #35424a;
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
 }
 
+nav a:hover {
+  color: #2563eb;
+}
+
+/* 主视觉 */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}
+
+/* 通用区块 */
+.section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+}
+
+/* 项目卡片 */
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  min-width: 260px;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* 联系 */
+#contact p {
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* 页脚 */
 footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #35424a;
-    color: #ffffff;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  text-align: center;
+  padding: 25px;
+  background: #111827;
+  color: white;
 }
