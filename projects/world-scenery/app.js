@@ -1,0 +1,52 @@
+const sceneryList = [
+  {
+    name: "冰岛极光",
+    country: "冰岛",
+    img: "https://images.unsplash.com/photo-1579033385971-a7bc023b3e0d"
+  },
+  {
+    name: "瑞士雪山",
+    country: "瑞士",
+    img: "https://images.unsplash.com/photo-1508264165352-258a6f82d3d7"
+  },
+  {
+    name: "马尔代夫",
+    country: "马尔代夫",
+    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+  },
+  {
+    name: "富士山",
+    country: "日本",
+    img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e"
+  },
+  {
+    name: "巴黎铁塔",
+    country: "法国",
+    img: "https://images.unsplash.com/photo-1431274172761-fca41d930114"
+  },
+  {
+    name: "大峡谷",
+    country: "美国",
+    img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+  }
+];
+
+const cards = document.getElementById("cards");
+
+function renderCards(list) {
+  cards.innerHTML = "";
+
+  list.forEach(item => {
+    cards.innerHTML += `
+      <div class="card">
+        <img src="${item.img}">
+        <div class="card-content">
+          <h3>${item.name}</h3>
+          <p>${item.country}</p>
+        </div>
+      </div>
+    `;
+  });
+}
+
+renderCards(sceneryList);
