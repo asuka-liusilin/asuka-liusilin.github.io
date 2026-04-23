@@ -97,18 +97,27 @@ nav a:hover {
   flex-wrap: wrap;
 }
 
-.card {
-  flex: 1;
-  min-width: 260px;
-  background: white;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  transition: 0.3s;
+.card{
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
 }
 
-.card:hover {
-  transform: translateY(-8px);
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card a{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  background:#667eea;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
 }
 
 /* 联系 */
