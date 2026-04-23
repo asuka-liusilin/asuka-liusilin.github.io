@@ -65,7 +65,7 @@ nav a:hover {
 
 .hero p {
   font-size: 20px;
-  color: #666;
+  color: rgba(255,255,255,0.9);
   margin-bottom: 30px;
 }
 
