@@ -124,3 +124,33 @@ footer {
   background: #111827;
   color: white;
 }
+
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:white;
+}
+
+.hero h1{
+  font-size:60px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:24px;
+  margin-bottom:30px;
+}
+
+.btn{
+  padding:12px 28px;
+  background:white;
+  color:#333;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+}
