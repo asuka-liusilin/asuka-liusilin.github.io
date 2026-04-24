@@ -49,7 +49,6 @@ function renderCards(list) {
         <div class="card-content">
           <h3>${item.name}</h3>
           <p>${item.country}</p>
-          <p class="category">${item.category}</p>
         </div>
       </div>
     `;
