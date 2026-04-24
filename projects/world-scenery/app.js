@@ -49,6 +49,7 @@ function renderCards(list) {
         <div class="card-content">
           <h3>${item.name}</h3>
           <p>${item.country}</p>
+          <p>${item.category}</p>
         </div>
       </div>
     `;
@@ -62,9 +63,10 @@ searchInput.addEventListener("input", function () {
   const keyword = this.value.toLowerCase();
 
   const filteredList = sceneryList.filter(item =>
-    item.name.toLowerCase().includes(keyword) ||
-    item.country.toLowerCase().includes(keyword)
-  );
+  item.name.toLowerCase().includes(keyword) ||
+  item.country.toLowerCase().includes(keyword) ||
+  item.category.toLowerCase().includes(keyword)
+);
 
   renderCards(filteredList);
 });
