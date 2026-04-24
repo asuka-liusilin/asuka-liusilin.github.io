@@ -50,3 +50,15 @@ function renderCards(list) {
 }
 
 renderCards(sceneryList);
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", function () {
+  const keyword = this.value.toLowerCase();
+
+  const filteredList = sceneryList.filter(item =>
+    item.name.toLowerCase().includes(keyword) ||
+    item.country.toLowerCase().includes(keyword)
+  );
+
+  renderCards(filteredList);
+});
