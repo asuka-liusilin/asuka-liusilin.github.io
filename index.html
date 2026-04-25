@@ -7,32 +7,24 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <section class="hero">
-  <h1>Hi, I'm Lillian</h1>
-  <p>Front-End Learner & Creative Builder</p>
-  <a href="#projects" class="btn">查看作品</a>
-</section>
 
-  <!-- 导航栏 -->
   <header>
     <nav>
       <h2>Lillian</h2>
       <ul>
-        <li><a href="#about">关于我</a></li>
-        <li><a href="#projects">项目</a></li>
-        <li><a href="#contact">联系</a></li>
+        <li><a href="#about" class="nav-link">关于我</a></li>
+        <li><a href="#projects" class="nav-link">项目</a></li>
+        <li><a href="#contact" class="nav-link">联系</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- 主视觉 -->
   <section class="hero">
-    <h1>你好，我是 Lillian 👋</h1>
+    <h1>你好，我是 Lillian</h1>
     <p>大一学生 ｜ 前端开发学习者 ｜ 正在打造我的 GitHub 作品集</p>
     <a href="#projects" class="btn">查看项目</a>
   </section>
 
-  <!-- 关于我 -->
   <section id="about" class="section">
     <h2>关于我</h2>
     <p>
@@ -41,42 +33,60 @@
     </p>
   </section>
 
-  <!-- 项目 -->
   <section id="projects" class="section">
     <h2>我的项目</h2>
-
     <div class="card-container">
-
       <div class="card">
         <h3>个人作品集网站</h3>
         <p>用于展示我的成长经历、技能与项目成果。</p>
       </div>
-
       <div class="card">
         <h3>世界风景图鉴</h3>
-        <p>全球风景浏览平台，支持景点展示。</p>
-        <a href="projects/world-scenery/" target="_blank">查看项目</a>
+        <p>全球风景浏览平台，支持景点展示与搜索。</p>
+        <a href="projects/world-scenery/index.html">查看项目</a>
       </div>
-
       <div class="card">
         <h3>更多项目持续更新...</h3>
         <p>未来将加入更多前端与数据分析作品。</p>
       </div>
-
     </div>
   </section>
 
-  <!-- 联系 -->
   <section id="contact" class="section">
     <h2>联系我</h2>
     <p>GitHub：asuka-liusilin</p>
     <p>Email：3235432323@qq.com</p>
   </section>
 
-  <!-- 页脚 -->
   <footer>
     <p>© 2026 Lillian Portfolio</p>
   </footer>
 
+  <script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + 150;
+
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+
+        if (scrollPos >= top && scrollPos < top + height) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+  </script>
 </body>
 </html>
