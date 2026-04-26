@@ -3,37 +3,43 @@ const sceneryList = [
     name: "冰岛极光",
     country: "冰岛",
     category: "欧洲",
-    img: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg"
+    img: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg",
+    detail: "detail-iceland.html"
   },
   {
     name: "瑞士雪山",
     country: "瑞士",
     category: "雪山",
-    img: "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"
+    img: "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
+    detail: "detail-switzerland.html"
   },
   {
     name: "马尔代夫",
     country: "马尔代夫",
     category: "海岛",
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    detail: "detail-maldives.html"
   },
   {
     name: "富士山",
     country: "日本",
     category: "亚洲",
-    img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e"
+    img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e",
+    detail: "detail-fuji.html"
   },
   {
     name: "巴黎铁塔",
     country: "法国",
     category: "欧洲",
-    img: "https://images.unsplash.com/photo-1431274172761-fca41d930114"
+    img: "https://images.unsplash.com/photo-1431274172761-fca41d930114",
+    detail: "detail-paris.html"
   },
   {
     name: "大峡谷",
     country: "美国",
     category: "美洲",
-    img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+    img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    detail: "detail-canyon.html"
   }
 ];
 
@@ -54,6 +60,7 @@ function renderCards(list) {
     const card = document.createElement("div");
     card.className = "card";
     card.style.animationDelay = `${index * 0.1}s`;
+    card.style.cursor = "pointer";
     card.innerHTML = `
       <img src="${item.img}" alt="${item.name}">
       <div class="card-content">
@@ -62,6 +69,9 @@ function renderCards(list) {
         <p class="category">${item.category}</p>
       </div>
     `;
+    card.addEventListener("click", () => {
+      window.location.href = item.detail;
+    });
     cards.appendChild(card);
   });
 }

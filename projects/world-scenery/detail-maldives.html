@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>马尔代夫 - 世界风景图鉴</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.detail-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.detail-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.detail-hero:hover img {
+  transform: scale(1.03);
+}
+
+.detail-hero .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 30px 30px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  color: white;
+}
+
+.detail-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.back-btn:active {
+  transform: scale(0.95);
+}
+
+.detail-title {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  padding-right: 40px;
+}
+
+.detail-content {
+  max-width: 900px;
+  margin: -50px auto 0;
+  position: relative;
+  z-index: 10;
+  padding: 0 20px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.detail-card {
+  background: linear-gradient(145deg, #ffffff, #f8f6ff);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.12);
+  border: 1px solid rgba(102, 126, 234, 0.08);
+  margin-bottom: 30px;
+}
+
+.detail-card h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.detail-location {
+  display: inline-flex;
+  align-items: center;
+  color: #667eea;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.detail-location::before {
+  content: '📍';
+  margin-right: 6px;
+}
+
+.detail-category {
+  display: inline-block;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  color: #667eea;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 20px;
+  border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.detail-intro {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+
+.detail-intro p {
+  margin-bottom: 15px;
+}
+
+.detail-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.info-card {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.05));
+  border-radius: 14px;
+  padding: 25px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.info-card h3 {
+  font-size: 16px;
+  color: #667eea;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-card p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.detail-footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 14px;
+}
+
+.detail-footer a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.detail-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .detail-hero {
+    height: 50vh;
+    min-height: 300px;
+  }
+
+  .detail-card {
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+
+  .detail-card h1 {
+    font-size: 26px;
+  }
+
+  .detail-meta {
+    gap: 10px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-nav {
+    height: 55px;
+  }
+
+  .back-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .detail-title {
+    font-size: 16px;
+    padding-right: 36px;
+  }
+
+  .detail-hero {
+    height: 40vh;
+    min-height: 250px;
+  }
+
+  .detail-hero .overlay {
+    padding: 30px 20px 20px;
+  }
+
+  .detail-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .detail-card h1 {
+    font-size: 22px;
+  }
+
+  .detail-intro {
+    font-size: 15px;
+  }
+
+  .info-card {
+    padding: 20px;
+  }
+
+  .info-card h3 {
+    font-size: 15px;
+  }
+
+  .info-card p {
+    font-size: 14px;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="detail-nav">
+  <a href="index.html" class="back-btn">←</a>
+  <div class="detail-title">马尔代夫</div>
+</nav>
+
+<section class="detail-hero">
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="马尔代夫">
+  <div class="overlay">
+    <h1>马尔代夫</h1>
+  </div>
+</section>
+
+<section class="detail-content">
+  <div class="detail-card">
+    <h1>马尔代夫</h1>
+    <div class="detail-meta">
+      <span class="detail-location">马尔代夫</span>
+      <span class="detail-category">海岛</span>
+    </div>
+
+    <div class="detail-intro">
+      <p>马尔代夫，印度洋上的珍珠，由26个环礁、1192个珊瑚岛组成。这里拥有世界上最清澈的海水、最洁白的沙滩和最丰富的海洋生物，是天堂般的度假胜地。</p>
+      <p>作为全球顶级的海岛目的地，马尔代夫以其奢华的水上屋和卓越的服务闻名于世。游客可以在这里体验潜水、浮潜、海钓等水上活动，也可以在私人岛屿上享受宁静的休闲时光。</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>🗓️ 最佳旅行时间</h3>
+        <p>11月至次年4月是最佳旅行季节，此时天气干燥晴朗，气温适宜，是观赏海底世界的最佳时机。5月至10月为雨季，价格相对便宜。</p>
+      </div>
+      <div class="info-card">
+        <h3>⭐ 热门看点</h3>
+        <p>水上屋、浮潜天堂、鲸鲨同游、日落巡航、珊瑚礁潜水、当地渔村体验、无人岛探险。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="detail-footer">
+  <p><a href="index.html">← 返回景点列表</a></p>
+  <p style="margin-top: 15px;">© 2026 世界风景图鉴</p>
+</footer>
+
+</body>
+</html>
