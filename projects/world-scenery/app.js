@@ -52,7 +52,12 @@ function renderCards(list) {
   cards.innerHTML = "";
 
   if (list.length === 0) {
-    cards.innerHTML = "<p style='text-align:center;grid-column:1/-1;color:#999;padding:40px;'>没有找到匹配的景点</p>";
+    cards.innerHTML = `
+      <div class="no-results">
+        <h3>🔍 没有找到匹配的景点</h3>
+        <p>尝试使用其他关键词搜索，或者选择不同的分类</p>
+      </div>
+    `;
     return;
   }
 
@@ -119,3 +124,12 @@ filterButtons.forEach(btn => {
 
 renderCards(sceneryList);
 filterCategory("全部");
+
+// 添加页面加载动画
+window.addEventListener('load', function() {
+  document.body.style.opacity = '0';
+  document.body.style.transition = 'opacity 0.5s ease';
+  setTimeout(() => {
+    document.body.style.opacity = '1';
+  }, 100);
+});
