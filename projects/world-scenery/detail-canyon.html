@@ -182,6 +182,158 @@
   border: 1px solid rgba(102, 126, 234, 0.15);
 }
 
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.rating-star {
+  font-size: 18px;
+  color: #e5e7eb;
+  transition: color 0.3s ease;
+}
+
+.rating-star.filled {
+  color: #fbbf24;
+}
+
+.rating-count {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.travel-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 25px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.03));
+  border-radius: 16px;
+  border: 1px solid rgba(102, 126, 234, 0.08);
+}
+
+.travel-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.travel-item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.travel-item-content h4 {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.travel-item-content p {
+  font-size: 15px;
+  color: #374151;
+  font-weight: 600;
+}
+
+.back-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  text-decoration: none;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  margin-top: 20px;
+}
+
+.back-home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.back-home-btn:active {
+  transform: translateY(0);
+}
+
+.related-section {
+  margin-top: 40px;
+}
+
+.related-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.related-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.related-card {
+  background: linear-gradient(145deg, #ffffff, #faf9ff);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(102, 126, 234, 0.08);
+}
+
+.related-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.12);
+}
+
+.related-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.related-card:hover img {
+  transform: scale(1.05);
+}
+
+.related-card-content {
+  padding: 16px;
+}
+
+.related-card-content h4 {
+  font-size: 15px;
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.related-card-content p {
+  font-size: 12px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .detail-intro {
   color: #555;
   font-size: 16px;
@@ -396,6 +548,32 @@
       <span class="detail-location">美国</span>
       <span class="detail-category">美洲</span>
     </div>
+    
+    <div class="rating">
+      <span class="rating-star filled">★</span>
+      <span class="rating-star filled">★</span>
+      <span class="rating-star filled">★</span>
+      <span class="rating-star filled">★</span>
+      <span class="rating-star filled">★</span>
+      <span class="rating-count">4.8 (3.1k 评价)</span>
+    </div>
+
+    <div class="travel-meta">
+      <div class="travel-item">
+        <div class="travel-item-icon">🌤️</div>
+        <div class="travel-item-content">
+          <h4>最佳季节</h4>
+          <p>春季、秋季</p>
+        </div>
+      </div>
+      <div class="travel-item">
+        <div class="travel-item-icon">📅</div>
+        <div class="travel-item-content">
+          <h4>建议天数</h4>
+          <p>2-3天</p>
+        </div>
+      </div>
+    </div>
 
     <div class="detail-intro">
       <p>大峡谷，位于美国亚利桑那州，是世界七大自然奇观之一。这座由科罗拉多河经过数百万年冲刷形成的巨大峡谷，长约446公里，最宽处29公里，深达1857米。</p>
@@ -411,6 +589,35 @@
         <h3>⭐ 热门看点</h3>
         <p>南缘观景台、北缘、大峡谷天空步道、科罗拉多河漂流、日落观赏、沙漠景观、星空观测。</p>
       </div>
+    </div>
+
+    <a href="../index.html" class="back-home-btn">🏠 返回作品集首页</a>
+  </div>
+
+  <div class="related-section">
+    <h2>🗺️ 相关推荐</h2>
+    <div class="related-cards">
+      <a href="detail-fuji.html" class="related-card" style="text-decoration: none;">
+        <img src="images/fuji-1.jpg" alt="富士山">
+        <div class="related-card-content">
+          <h4>富士山</h4>
+          <p>📍 日本 · 亚洲</p>
+        </div>
+      </a>
+      <a href="detail-paris.html" class="related-card" style="text-decoration: none;">
+        <img src="images/paris-1.jpg" alt="巴黎铁塔">
+        <div class="related-card-content">
+          <h4>巴黎铁塔</h4>
+          <p>📍 法国 · 欧洲</p>
+        </div>
+      </a>
+      <a href="detail-iceland.html" class="related-card" style="text-decoration: none;">
+        <img src="images/iceland-1.jpg" alt="冰岛极光">
+        <div class="related-card-content">
+          <h4>冰岛极光</h4>
+          <p>📍 冰岛 · 欧洲</p>
+        </div>
+      </a>
     </div>
   </div>
 </section>
