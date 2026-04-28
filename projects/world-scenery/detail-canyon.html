@@ -143,12 +143,84 @@
   box-shadow: 0 10px 40px rgba(102, 126, 234, 0.12);
   border: 1px solid rgba(102, 126, 234, 0.08);
   margin-bottom: 30px;
+  transition: all 0.3s ease;
 }
 
 .detail-card h1 {
   font-size: 32px;
   color: #333;
   margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+body.dark {
+  background: #0f1115;
+}
+
+body.dark .detail-nav {
+  background: rgba(26, 29, 36, 0.95);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .detail-title {
+  color: #e5e7eb;
+}
+
+body.dark .detail-card {
+  background: #1a1d24;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .detail-card h1 {
+  color: #ffffff;
+}
+
+body.dark .detail-intro p {
+  color: #9ca3af;
+}
+
+body.dark .info-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark .info-card h3 {
+  color: #e5e7eb;
+}
+
+body.dark .info-card p {
+  color: #9ca3af;
+}
+
+body.dark .travel-meta {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark .travel-item-content h4 {
+  color: #6b7280;
+}
+
+body.dark .travel-item-content p {
+  color: #e5e7eb;
+}
+
+body.dark .related-section h2 {
+  color: #e5e7eb;
+}
+
+body.dark .related-card {
+  background: #1a1d24;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .related-card-content h4 {
+  color: #ffffff;
+}
+
+body.dark .related-card-content p {
+  color: #6b7280;
 }
 
 .detail-meta {
@@ -476,6 +548,9 @@
 <nav class="detail-nav">
   <a href="index.html" class="back-btn">←</a>
   <div class="detail-title">大峡谷</div>
+  <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">
+    <span class="theme-icon">🌙</span>
+  </button>
 </nav>
 
 <section class="detail-hero">
@@ -626,6 +701,38 @@
   <p><a href="index.html">← 返回景点列表</a></p>
   <p style="margin-top: 15px;">© 2026 世界风景图鉴</p>
 </footer>
+
+<script>
+  function getTheme() {
+    const savedTheme = localStorage.getItem('sceneryTheme');
+    return savedTheme || 'light';
+  }
+
+  function setTheme(theme) {
+    localStorage.setItem('sceneryTheme', theme);
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+      document.querySelector('.theme-icon').textContent = '☀️';
+    } else {
+      document.body.classList.remove('dark');
+      document.querySelector('.theme-icon').textContent = '🌙';
+    }
+  }
+
+  function toggleTheme() {
+    const currentTheme = getTheme();
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+
+  window.addEventListener('load', function() {
+    const savedTheme = getTheme();
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark');
+      document.querySelector('.theme-icon').textContent = '☀️';
+    }
+  });
+</script>
 
 </body>
 </html>

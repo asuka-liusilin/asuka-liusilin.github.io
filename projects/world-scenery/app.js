@@ -204,9 +204,38 @@ updateFavoriteCount();
 renderCards(sceneryList);
 filterCategory("全部");
 
+function getTheme() {
+  const savedTheme = localStorage.getItem('sceneryTheme');
+  return savedTheme || 'light';
+}
+
+function setTheme(theme) {
+  localStorage.setItem('sceneryTheme', theme);
+  if (theme === 'dark') {
+    document.body.classList.add('dark');
+    document.querySelector('.theme-icon').textContent = '☀️';
+  } else {
+    document.body.classList.remove('dark');
+    document.querySelector('.theme-icon').textContent = '🌙';
+  }
+}
+
+function toggleTheme() {
+  const currentTheme = getTheme();
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  setTheme(newTheme);
+}
+
 window.addEventListener('load', function() {
   document.body.style.opacity = '0';
   document.body.style.transition = 'opacity 0.5s ease';
+  
+  const savedTheme = getTheme();
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark');
+    document.querySelector('.theme-icon').textContent = '☀️';
+  }
+  
   setTimeout(() => {
     document.body.style.opacity = '1';
   }, 100);
