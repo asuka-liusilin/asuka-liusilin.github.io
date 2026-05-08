@@ -639,6 +639,9 @@ body.dark .related-card-content p {
 <nav class="detail-nav">
   <a href="index.html" class="back-btn">←</a>
   <div class="detail-title">马尔代夫</div>
+  <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">
+    <span class="theme-icon">🌙</span>
+  </button>
 </nav>
 
 <section class="detail-hero">
@@ -789,6 +792,38 @@ body.dark .related-card-content p {
   <p><a href="index.html">← 返回景点列表</a> | <a href="../index.html">回到作品集</a></p>
   <p style="margin-top: 15px;">© 2026 世界风景图鉴</p>
 </footer>
+
+<script>
+  function getTheme() {
+    const savedTheme = localStorage.getItem('sceneryTheme');
+    return savedTheme || 'light';
+  }
+
+  function setTheme(theme) {
+    localStorage.setItem('sceneryTheme', theme);
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+      document.querySelector('.theme-icon').textContent = '☀️';
+    } else {
+      document.body.classList.remove('dark');
+      document.querySelector('.theme-icon').textContent = '🌙';
+    }
+  }
+
+  function toggleTheme() {
+    const currentTheme = getTheme();
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+
+  window.addEventListener('load', function() {
+    const savedTheme = getTheme();
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark');
+      document.querySelector('.theme-icon').textContent = '☀️';
+    }
+  });
+</script>
 
 </body>
 </html>
