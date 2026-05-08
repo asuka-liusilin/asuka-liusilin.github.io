@@ -322,8 +322,8 @@ body {
 }
 
 .task-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
@@ -333,6 +333,7 @@ body {
   background: var(--bg-card);
   border-radius: var(--radius-xl);
   border: 2px dashed var(--border-color);
+  grid-column: span 2;
 }
 
 .empty-state svg {
